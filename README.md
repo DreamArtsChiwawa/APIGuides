@@ -9,7 +9,7 @@
 <br>
 
 
-- [【APIを扱うにあたって】基礎知識](.document/APIcomponent.md)
+- [【APIを扱うにあたって】基礎知識](./document/APIcomponent.md)
 - [開発環境の構築手順](./document/post_message/build_environment.md)
 - [メッセージ投稿APIのプログラム実装例](./document/post_message/post_message.md)
 
