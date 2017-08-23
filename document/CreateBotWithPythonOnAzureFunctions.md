@@ -11,8 +11,8 @@ Azure FunctionsのPythonを用いて、知話輪ボットを作成する手順�
 以下、詳細を説明します。
 
 ## 【Azure】Functionsを作成する
-- Microsoft Azureにログインし、管理ダッシュボードを表示　https://portal.azure.com
-- 左のプラスボタン＞Compute＞Function App＞createを選択<br />
+- Microsoft Azureにログインし、ダッシュボードを表示　https://portal.azure.com
+- 左のプラスボタン＞Compute＞Function App＞createを選択<br />
 <img src="../img/azure_create_function_app.png" width="300px" /><br />
 - Functionの名称やリージョンを選択してcreate<br />
 <img src="../img/azure_create_function_app_setup.png" width="300px" /><br />
