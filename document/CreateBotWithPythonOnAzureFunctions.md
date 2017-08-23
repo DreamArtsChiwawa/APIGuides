@@ -31,7 +31,7 @@ Azure FunctionsのPythonを用いて、知話輪ボットを作成する手順�
 1. APIトークンとWebhook検証トークンを次章でAzure Functionsの環境変数にセットするためコピー
 
 ## 【Azure】アプリケーション設定から、APIトークン等を環境変数に設定
-- functionsの概要画面を表示し、「Application settings」をクリック
+- functionsの概要画面を表示し、「Application settings」をクリック
 <img src="../img/azure_functions_overview.png" width="500px" /><br />
 - APIトークン、Webhook検証トークンを環境変数にセット
 <img src="../img/azure_set_environment_variable.png" width="500px" /><br />
