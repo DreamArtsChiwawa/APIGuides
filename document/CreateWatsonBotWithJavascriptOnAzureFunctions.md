@@ -17,15 +17,15 @@ IBM Watson Conversationを使って、知話輪ボットを作成する方法を
 - 下記のサイトからWatson Conversationにログインする。
     - https://watson-conversation.ng.bluemix.net/login
     - IBMのIDがない場合はサインアップをする。（30日程度の無料トライアルができる）
-- ログイン後、ガイドに従ってRegionなどを選択し、Watson ConversationのWorkspaces画面を開く。<br />
+- ログイン後、ガイドに従ってRegionなどを選択し、Watson ConversationのWorkspaces画面を開く。<br />
 <img src="../img/watson_conversation_workspaces.png" width="500px" /><br />
 - Createボタンを押し、新たなWorkspaceを作成する。
 - Workspaceのビルド画面を開くと、Intents, Entities, Dialogというタブが出てくる。<br />
-- Intentsがテキストからユーザの意図を認識するためのもので、例文をいくつか登録しておくと、どの意図かを判断できるようになる。<br />
+- Intentsがテキストからユーザの意図を認識するためのもので、例文をいくつか登録しておくと、どの意図かを判断できるようになる。<br />
 <img src="../img/watson_conversation_build_intents.png" width="500px" /><br />
 - Entitiesは金額、日時など文中の重要な要素を認識するためのもので、これは予め幾つかのパターンが準備されている。<br />
 <img src="../img/watson_conversation_build_entities.png" width="500px" /><br />
-- Dialogは対話の流れを設定するためのもので、あるIntentにマッチしたら、こういう内容を返すとか、次の流れに進むとか、様々なパターンが設定できる。<br />
+- Dialogは対話の流れを設定するためのもので、あるIntentにマッチしたら、こういう内容を返すとか、次の流れに進むとか、様々なパターンが設定できる。<br />
 <img src="../img/watson_conversation_build_dialog.png" width="500px" /><br />
 - 左メニューからDeployを選択し、Credentialsを表示する。ここに表示される内容を後のAzure Functionsの環境変数にセットする。<br />
 <img src="../img/watson_conversation_deploy_credentials.png" width="500px" /><br />
