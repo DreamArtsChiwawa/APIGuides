@@ -73,7 +73,7 @@ https://Your_APP_NAME.scm.azurewebsites.net/DebugConsole
 ```
 <img src="../img/azure_kudu_install_javascript.png" width="500px" /><br />
 
-- ライブラリをインストールするため、npm initでpackage.jsonを作成する。（New Fileから作成して直接JSONを書いてもよい。）
+- ライブラリをインストールするため、npm initでpackage.jsonを作成する。（New Fileから作成して直接JSONを書いてもよい。）
 ```
 cd D:\home\site\wwwroot\YourFunctionName
 npm init
