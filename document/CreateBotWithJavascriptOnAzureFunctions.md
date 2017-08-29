@@ -1,7 +1,7 @@
 # 知話輪ボット作成手順　Javascript on Azure Functions編
 Azure FunctionsのJavascriptを用いて、知話輪ボットを作成する手順を紹介します。
 「こんにちは」と投稿すると、「こんにちは」と返すだけのシンプルなボットを実装することで、ボットの作り方を理解しましょう。
-インフラ構築・開発環境の構築・プログラミングの深い知識は不要で、ブラウザ上でコピペをするだけで開発ができます。
+インフラ構築・開発環境の構築・プログラミングの深い知識は不要で、ブラウザ上でコピペをするだけで開発ができます。
 
 作成手順は下記の通りです。
 1. 【Azure】Functionsを作成する
@@ -46,7 +46,7 @@ Azure FunctionsのJavascriptを用いて、知話輪ボットを作成する手�
 | CHIWAWA_VALIDATION_TOKEN | 知話輪のWebhook検証用トークン |
 
 ## 【Azure】コーディングをする
-以下は、知話輪にメッセージが投稿された際に、投稿された内容をそのまま知話輪にメッセージ投稿するもの。
+以下は、知話輪にメッセージが投稿された際に、投稿された内容をそのまま知話輪にメッセージ投稿するもの。
 下記のコードをAzure Functionsのindex.jsにコピーするだけでボットが完成する。
 
 ```.js
@@ -152,4 +152,4 @@ const ChiwawaService = {
 - [知話輪とは](https://www.chiwawa.one/)
 - [知話輪のAPIドキュメント](https://developers.chiwawa.one/api/)
 - [Watson Conversationのチュートリアル（英語）](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
-- [Watson ConversationのAPIドキュメント（英語）](https://www.ibm.com/watson/developercloud/conversation/api/v1/?node#)
+- [Watson ConversationのAPIドキュメント（英語）](https://www.ibm.com/watson/developercloud/conversation/api/v1/?node#)
