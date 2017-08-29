@@ -151,5 +151,5 @@ const ChiwawaService = {
 ## 参考資料
 - [知話輪とは](https://www.chiwawa.one/)
 - [知話輪のAPIドキュメント](https://developers.chiwawa.one/api/)
-- [Watson Conversationのチュートリアル（英語）](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
+- [Watson Conversationのチュートリアル（英語）](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
 - [Watson ConversationのAPIドキュメント（英語）](https://www.ibm.com/watson/developercloud/conversation/api/v1/?node#)
