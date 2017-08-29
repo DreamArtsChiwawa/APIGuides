@@ -48,7 +48,7 @@ IBM Watson Conversationを使って、知話輪ボットを作成する方法を
 1. https://[YOUR_COMPANY_ID].chiwawa.one/admin/login　からログイン
 1. 「カスタマイズ＞Bot管理（トークン発行）＞新しく作成する」を選択
 1. Azure Functionsで発行されたURLをWebhook URLにセット
-1. メッセージを投稿するたびにWatsonが動くと邪魔なので、トリガーワードに「ワトソン」と設定する。すると、「ワトソン」という文字列でメッセージを投稿したときだけボットが動くようになる
+1. メッセージを投稿するたびにWatsonが動くと邪魔なので、トリガーワードに「ワトソン」と設定する。すると、「ワトソン」という文字列でメッセージを投稿したときだけボットが動くようになる
 1. ダイレクトメッセージを利用「する」を選択し、「登録する」ボタンを押す
 1. APIトークンとWebhook検証トークンを次章でAzure Functionsの環境変数にセットするためコピー
 
@@ -81,7 +81,7 @@ npm install watson-developer-cloud --save
 ```
 
 ## 【Azure】コーディングをする
-以下は、知話輪にメッセージが投稿された際に、Watsonに問合せに行き、その回答を知話輪にメッセージとして投稿するという内容。
+以下は、知話輪にメッセージが投稿された際に、Watsonに問合せに行き、その回答を知話輪にメッセージとして投稿するという内容。
 Watsonの設定をきちんと行っておけば、QAボットやその他の対話ボットが作れる。
 下記のコードをAzure Functionsのindex.jsにコピーするだけでボットが完成する。
 
@@ -238,5 +238,5 @@ const ChiwawaService = {
 ## 参考資料
 - [知話輪とは](https://www.chiwawa.one/)
 - [知話輪のAPIドキュメント](https://developers.chiwawa.one/api/)
-- [Watson Conversationのチュートリアル（英語）](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
-- [Watson ConversationのAPIドキュメント（英語）](https://www.ibm.com/watson/developercloud/conversation/api/v1/?node#)
+- [Watson Conversationのチュートリアル（英語）](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
+- [Watson ConversationのAPIドキュメント（英語）](https://www.ibm.com/watson/developercloud/conversation/api/v1/?node#)
