@@ -36,6 +36,11 @@ Azure FunctionsのPythonを用いて、知話輪ボットを作成する手順�
 - APIトークン、Webhook検証トークンを環境変数にセット
 <img src="../img/azure_set_environment_variable.png" width="500px" /><br />
 
+| 環境変数名 | 値 |
+|---|---|
+| CHIWAWA_API_TOKEN | 知話輪のAPIトークン |
+| CHIWAWA_VALIDATION_TOKEN | 知話輪のWebhook検証用トークン |
+
 ## 【Azure】サードパーティーのライブラリをインストール
 - 下記のサイトからコマンドラインツールを立ち上げる。
 ```
@@ -63,6 +68,8 @@ https://prmadi.com/running-python-code-on-azure-functions-app/
 下記は、ユーザが投稿した内容をそのまま返すエコーボットです。
 
 ```.py
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import os
 import json
 import requests
@@ -82,7 +89,7 @@ def send_message(companyId, groupId, message):
         'X-Chiwawa-API-Token': env['CHIWAWA_API_TOKEN']
     }
     content = {
-        'text': 'You said "' + message.encode('utf-8') + '"'
+        'text': message
     }
     requests.post(url, headers=headers, data=json.dumps(content))
 
@@ -98,7 +105,7 @@ if is_request_valid():
     companyId = req['companyId']
     groupId = req['message']['groupId']
     messageText = req['message']['text']
-    send_message(companyId, groupId, messageText);
+    send_message(companyId, groupId, 'You said "' + messageText + '"');
     send_response('OK')
 else:
     send_response('Request is not valid.')
@@ -117,4 +124,8 @@ Azure Functionsを用いた知話輪エコーボットの作成手順は以上�
 
 ## トラブルシュート
 ### 日本語関連のエラー （Non-ASCII character '...' in file）
-- メッセージ出力やレスポンスで日本語を使う場合は、「"日本語の文字列".encode('utf-8')」が必要。
+- メッセージ出力やレスポンスで日本語を使う場合は、ソースコードの先頭に下記のコードを入れておくとよい。
+```
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+```

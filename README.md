@@ -11,8 +11,9 @@
 - [【APIを扱うにあたって】基礎知識](./document/APIcomponent.md)
 - [開発環境の構築手順](./document/build_environment.md)
 - [メッセージ投稿APIのプログラム実装例　Javascript編](./document/post_message/post_message.md)
+- [知話輪ボット作成手順　Javascript on Azure Functions編](./document/CreateBotWithJavascriptOnAzureFunctions.md)
 - [知話輪ボット作成手順　Python on Azure Functions編](./document/CreateBotWithPythonOnAzureFunctions.md)
-
+- [IBM Watson Conversationを使って、コピペだけでAIチャットボットを作る](./document/CreateWatsonBotWithJavascriptOnAzureFunctions.md)
 ---
 
 そのほかのAPIに関するドキュメントは、今後実装予定です。
