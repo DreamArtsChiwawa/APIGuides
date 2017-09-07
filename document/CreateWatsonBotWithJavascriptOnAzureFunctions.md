@@ -73,10 +73,12 @@ https://Your_APP_NAME.scm.azurewebsites.net/DebugConsole
 ```
 <img src="../img/azure_kudu_install_javascript.png" width="500px" /><br />
 
-- ライブラリをインストールするため、npm initでpackage.jsonを作成する。（New Fileから作成して直接JSONを書いてもよい。）
+- ライブラリをインストールするため、npm initでpackage.jsonを作成する。（直接JSONを書いてもよい）
+- 知話輪のSDKとwatsonのSDKをインストールする。（watsonのSDKのインストールにはかなりの時間がかかる）
 ```
 cd D:\home\site\wwwroot\YourFunctionName
 npm init
+npm install chiwawa_node_sdk --save
 npm install watson-developer-cloud --save
 ```
 
@@ -86,14 +88,14 @@ Watsonの設定をきちんと行っておけば、QAボットやその他の対
 下記のコードをAzure Functionsのindex.jsにコピーするだけでボットが完成する。
 
 ```.js
-/** メイン処理 */
+const ChiwawaService = require("chiwawa_node_sdk");
 module.exports = function (context, req) {
     context.log('started');
 
     if (ChiwawaService.isValidRequest(req, context)) {
-        let messageText = ChiwawaService.getMessage(req);
+        let messageText = ChiwawaService.getMessageText(req);
         if (messageText) {
-            // トリガーワードを設定した場合は、トリガーワードを除去
+            // トリガーワードを削除
             messageText = messageText.replace(/^ワトソン/i, "");
         }
         // Watson Conversationサービスに問い合わせ
@@ -102,14 +104,11 @@ module.exports = function (context, req) {
             if (err) {
                 result = "わかりません。";
             }   
-            ChiwawaService.sendMessage(ChiwawaService.getCompanyId(req), ChiwawaService.getGroupId(req), result, (err, httpResponse, body) => {});
-            context.res = {body: "OK"};
-            context.done();
+            ChiwawaService.sendMessage(req, result, (err, httpResponse, body) => {}, context);
         }, context);
     }
 };
 
-/** ワトソン関連の処理 */
 var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 const WatsonConversationService = {
     askWatson: function(question, callback, context) {
@@ -146,83 +145,6 @@ const WatsonConversationService = {
         }, processResponse);
     }
 };
-
-/** 知話輪関連の処理 */
-var request = require('request');
-const ChiwawaService = {
-    /** リクエストの内容をチェック。
-     * @param req リクエストオブジェクト
-     * @param context（任意） Azure functionsの場合は、contextをセットすると、問題があった際にエラーレスポンスを返し、contextを処理済みにする。
-     * @return 問題がある場合はfalseを返す。。 
-     */
-    isValidRequest: function(req, context) {
-        // headerをチェック
-        if (!ChiwawaService.privateMethods.isAuthorized(req)) {
-            if (context) {
-                context.res = {
-                    status: 401,
-                    body: "Unauthorized request."
-                };
-                context.log("401: Unauthorized request.");
-                context.done();
-            }
-            return false;
-        }
-        
-        // bodyをチェック
-        if (!ChiwawaService.privateMethods.isBodyValid(req)) {
-            if (context) {
-                context.res = {
-                    status: 400,
-                    body: "Request body is not valid. Please set a message in the request body."
-                };
-                context.log("400: Bad request.");
-                context.done();
-            }
-            return false;
-        }
-        return true;
-    },
-    /** リクエストから企業IDを取得 */
-    getCompanyId: function(req) {
-        return req.body.companyId;
-    },
-    /** リクエストからグループIDを取得 */
-    getGroupId: function(req) {
-        return req.body.message.groupId;
-    },
-    /** リクエストからメッセージを取得 */
-    getMessage: function(req) {
-        return req.body.message.text;
-    },
-    /** 知話輪にメッセージを送信 */
-    sendMessage: function(companyId, groupId, messageText, callback) {
-        const baseUrl = `https://${companyId}.chiwawa.one/api/public/v1/groups/${groupId}/messages`;
-        const content = {
-            'text': messageText
-        };
-        const headers = {
-            'Content-Type': 'application/json',
-            'X-Chiwawa-API-Token': process.env["CHIWAWA_API_TOKEN"]
-        };
-        const options = {
-            url: baseUrl,
-            headers: headers,
-            json: content
-        }
-        request.post(options, function(err, httpResponse, body){
-            if (callback) callback(err, httpResponse, body);
-        });
-    },
-    privateMethods: {
-        isAuthorized: function(req) {
-            return req.headers['x-chiwawa-webhook-token'] === process.env["CHIWAWA_VALIDATION_TOKEN"];
-        },
-        isBodyValid: function(req) {
-            return req.body && req.body.type && req.body.message;
-        },
-    }
-}
 ```
 
 ## 【知話輪アプリ】アプリから動作確認をする
@@ -238,5 +160,6 @@ const ChiwawaService = {
 ## 参考資料
 - [知話輪とは](https://www.chiwawa.one/)
 - [知話輪のAPIドキュメント](https://developers.chiwawa.one/api/)
+- [知話輪SDK for Node.js](https://github.com/DreamArtsChiwawa/chiwawa_node_sdk)
 - [Watson Conversationのチュートリアル（英語）](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
 - [Watson ConversationのAPIドキュメント（英語）](https://www.ibm.com/watson/developercloud/conversation/api/v1/?node#)
