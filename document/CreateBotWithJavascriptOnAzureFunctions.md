@@ -7,9 +7,10 @@ Azure FunctionsのJavascriptを用いて、知話輪ボットを作成する手�
 1. 【Azure】Functionsを作成する
 1. 【知話輪管理画面】APIトークンを発行する
 1. 【Azure】アプリケーション設定から、APIトークン等を環境変数に設定
-1. 【Azure】サードパーティーのライブラリをインストール
 1. 【Azure】コーディングをする
 1. 【知話輪アプリ】アプリから動作確認をする
+1. 【Azure】SDKをインストール
+1. 【Azure】SDKを使ってコードを簡易化する
 
 以下、詳細を説明します。
 
@@ -66,7 +67,7 @@ const ChiwawaService = {
     /** リクエストの内容をチェック。
      * @param req リクエストオブジェクト
      * @param context（任意） Azure functionsの場合は、contextをセットすると、問題があった際にエラーレスポンスを返し、contextを処理済みにする。
-     * @return 問題がある場合はfalseを返す。。 
+     * @return 問題がある場合はfalseを返す。。
      */
     isValidRequest: function(req, context) {
         // headerをチェック
@@ -81,7 +82,7 @@ const ChiwawaService = {
             }
             return false;
         }
-        
+
         // bodyをチェック
         if (!ChiwawaService.privateMethods.isBodyValid(req)) {
             if (context) {
@@ -146,10 +147,39 @@ const ChiwawaService = {
 - メッセージを投稿すると同じ内容を返してくる<br />
 <img src="../img/chiwawa_app_echo_bot.png" width="500px" /><br />
 
-以上で、Azure Functionsを用いた知話輪ボットは完成です。
+以上で、一旦Azure Functionsを使った知話輪ボットが完成しました。
+
+# 補足：chiwawa_node_sdkを使ってコードを改善する
+ここまでは、理解を促進するためにSDKを使わずに直接知話輪のREST APIを呼び出す例を紹介しました。ここからは、chiwawa_node_sdkを使って、より簡易に実装する方法を紹介します。
+
+## 【Azure】SDKをインストール
+- 下記のサイトからコマンドラインツールを立ち上げる。
+```
+https://Your_APP_NAME.scm.azurewebsites.net/DebugConsole
+```
+<img src="../img/azure_kudu_install_javascript.png" width="500px" /><br />
+
+- ライブラリをインストールするため、npm initでpackage.jsonを作成する。（New Fileから作成して直接JSONを書いてもよい。）
+```
+cd D:\home\site\wwwroot\YourFunctionName
+npm init
+npm install chiwawa_node_sdk --save
+```
+
+## 【Azure】SDKを使ってコードを簡易化する
+SDKを使った場合、リクエストからデータを取得する部分や、知話輪にメッセージを送信する部分はSDKに含まれているため、下記のコードだけで実装が完了する。
+```.js
+const ChiwawaService = require("chiwawa_node_sdk");
+/** メイン処理 */
+module.exports = function (context, req) {
+    if (ChiwawaService.isValidRequest(req, context)) {
+        let messageText = ChiwawaService.getMessageText(req);
+        ChiwawaService.sendMessage(req, "You said '" + messageText + "'", (err, httpResponse, body) => {}, context);
+    }
+};
+```
 
 ## 参考資料
 - [知話輪とは](https://www.chiwawa.one/)
 - [知話輪のAPIドキュメント](https://developers.chiwawa.one/api/)
-- [Watson Conversationのチュートリアル（英語）](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
-- [Watson ConversationのAPIドキュメント（英語）](https://www.ibm.com/watson/developercloud/conversation/api/v1/?node#)
+- [知話輪SDK for Node.js](https://github.com/DreamArtsChiwawa/chiwawa_node_sdk)
