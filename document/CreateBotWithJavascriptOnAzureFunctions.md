@@ -38,7 +38,7 @@ Azure FunctionsのJavascriptを用いて、知話輪ボットを作成する手�
 ## 【Azure】アプリケーション設定から、APIトークン等を環境変数に設定
 - functionsの概要画面を表示し、「Application settings」をクリック
 <img src="../img/azure_functions_overview.png" width="500px" /><br />
-- 知話輪のトークンを環境変数にセット
+- 知話輪のトークンを環境変数にセット<br />
 <img src="../img/azure_set_environment_variable.png" width="500px" /><br />
 
 | 環境変数名 | 値 |
