@@ -9,7 +9,6 @@
 	- [WebHookの利用](#WebHookの利用)
 	- [WebHookのメッセージ投稿イベント](#WebHookのメッセージ投稿イベント)
 	- [WebAPI / WebHook / BOTの利用イメージ](#利用イメージ)
-	- [Herokuに関する補足](#Heroku)
 </font>
 
 <br><br>
@@ -59,8 +58,8 @@ webAPIは、<strong> 知話輪の外 </strong>からデータ・機能へアク�
 </font>
 <br>
 知話輪アプリでは、多岐にわたるWebAPIを用いて知話輪アプリの利用の幅を大きく広げることができます。
-詳細は、[知話輪APIドキュメント](https://developers.chiwawa.one/api/document.html)から見ることができます。 </font>
-
+詳細は下記の知話輪APIドキュメントを参照してください。 <br>
+- https://developers.chiwawa.one/api/document.html
 
 >利用例： INSUITEに登録したスケジュールをもとに、会議の時間を知話輪で通知できるようにする。
 
