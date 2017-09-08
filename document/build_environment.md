@@ -1,14 +1,11 @@
-<font size="5">
+# 開発環境構築手順（Mac用）
 
-# 環境構築
-
-<br><br>
-
-## 一覧
-
-#### Mac
-
+## 目次
 1. [はじめに](#はじめに)
+    - [【既存の環境と、これから必要な用意】](#既存の環境とこれから必要な用意)
+    	- [開発に必要な環境](#開発に必要な環境)
+    	- [すでに用意されている環境](#すでに用意されてる環境)
+    	- [自身で構築しなければならない環境](#自身で構築しなければならない環境)
 1. [AppStore](#AppStore)
     - [Apple IDの設定](#Apple_IDの設定)
 1. [Xcode](#Xcode)
@@ -40,23 +37,94 @@
     - [Githubの登録](#Githubの登録)
     - [参考資料](#Github参考)
 
-
-</font>
-
 <br>
 
-
 ---
-
-<br><br>
 
 ##  1. はじめに
 
 <br>
+Node.jsとHerokuを用いて、ボットを作るための開発環境の構築手順を紹介します。
 
-<font size="5">[開発に必要な環境 | APIcomponent.md](./APIcomponent.md#開発に必要な環境)</font> に従い、以下の形で開発環境の構築をしていきます。
 
-![image of tower of develop environment ](../img/serverComponent_1.jpeg)
+---
+
+## 【既存の環境と、これから必要な用意】
+
+<a name="開発に必要な環境"></a>
+
+<br>
+
+### 開発に必要な環境
+
+<font size="4">
+
+[WebAPI / WebHooks / BOTの利用イメージ](#利用イメージ)をもとに、環境の用意をします。
+まずは、以下の図を見てください。
+
+
+![image](../img/serverComponent_1.jpeg)
+
+オレンジの枠線で囲まれた要素が、最終的に必要となるものです。<br>
+そしてそれらを用意するためには、それぞれ一段下に配置されている要素を用意する必要があります。
+
+<a name="すでに用意されている環境"></a>
+
+
+<br>
+
+</font>
+
+### すでに用意されている環境
+
+<font size="4">
+
+BOTアプリを作成するにあたり、パソコンの中にすでに用意されている要素は以下の通りです。
+
+![image](../img/serverComponent_2.jpeg)
+
+
+これらはどちらも標準のアプリケーションです。
+AppStoreとSafariのそれぞれを起動して、まずは一段上に位置する
+
+- Xcode (えっくすこーど)
+- Heroku
+- ChiwawaAdmin (ちわわあどみん)
+
+の準備から始めましょう。次のドキュメントで具体的な手順の説明をしますので、今は環境を構築するのに必要な順番を理解してください。
+<br><font color = grey>(Safariは、Chrome、firefoxなど他のブラウザアプリを使用することも可能です)</font>
+
+<br>
+
+<a name="自身で構築しなければならない環境"></a>
+
+
+<br>
+
+
+### 自身で構築しなければならない環境
+
+![img](../img/serverComponent_3.jpeg)
+
+インターネット上で、HerokuとChiwawaAdminの設定を行います。<br>
+この二つに関してはこれで完了です。<br>
+<br>
+AppStoreを利用してXcodeのインストールが完了したら、次はXcodeを基盤にHomebrewをインストールします。このように、段階的に必要なものをインストールしていき、最終的に必要な環境を構築します。
+
+![img](../img/serverComponent_4.jpeg)
+![img](../img/serverComponent_5.jpeg)
+![img](../img/serverComponent_6.jpeg)
+![img](../img/serverComponent_7.jpeg)
+
+</font><font size ="5">
+
+それでは、今の手順を実際に自分のパソコンで再現します。
+次のドキュメントに進んでください。
+
+</font>
+
+
+<br><br>
 
 <a name="AppStore"></a>
 <br><br><br>
@@ -543,6 +611,18 @@ npmのバージョンを表示させることで、動作していることを�
 <a name="Heroku"></a><br>
 
 ## 7. Heroku
+
+<font size="5">
+
+> [[Node.js公式サイト]](https://nodejs.org/ja/)
+
+<a name="Heroku"></a>
+<br>
+
+Herokuはクラウドのアプリケーションプラットフォームです。ユーザは自分が開発したアプリをHeroku上に乗せるだけで、面倒なインフラ構築の作業をしなくても、簡単にWebサービスを開始することができます。
+今回の例では、Herokuを利用して、ボットを製作するため、簡単にHerokuのセットアップ手順を紹介します。
+
+<br><br>
 
 1. [Heroku 公式ホームページ](https://www.heroku.com/)からHerokuアカウントの登録
 
