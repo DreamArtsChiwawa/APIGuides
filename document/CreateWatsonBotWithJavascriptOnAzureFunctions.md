@@ -1,8 +1,16 @@
 # IBM Watson Conversationを使って、コピペだけでAIチャットボットを作る
-
 IBM Watson Conversationを使って、知話輪ボットを作成する方法を紹介します。
 今回もボットサーバーは構築せず、Azure Functionsを使って、<B>ブラウザ上でコピペだけで開発</B>をします。<br />
-作成手順は下記の通りです。
+
+## 準備するもの
+1. 知話輪のアプリ、ユーザアカウント、Bot管理権限
+1. IBM Bluemixのアカウント
+1. Microsoft Azureのアカウント
+1. Chromeブラウザ
+
+（※知話輪アプリ、ブラウザ、ログインユーザを準備するだけで、開発環境の構築は不要です。）
+
+## 作成手順
 1. 【Watson】IBMのBluemixにログインし、Watson Conversationの利用を開始する
 1. 【Azure】Functionsを作成する
 1. 【知話輪管理画面】APIトークンを発行する
@@ -10,8 +18,6 @@ IBM Watson Conversationを使って、知話輪ボットを作成する方法を
 1. 【Azure】サードパーティーのライブラリをインストール
 1. 【Azure】コーディングをする
 1. 【知話輪アプリ】アプリから動作確認をする
-
-以下、詳細を説明します。
 
 ## 【Watson】IBMのBluemixにログインし、Watson Conversationの利用を開始する
 - 下記のサイトからWatson Conversationにログインする。
