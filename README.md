@@ -4,7 +4,7 @@
 
 | 分類 | タイトル | 概要 |
 |---|---|---|
-| 超入門 | ノンプログラミングで知話輪と外部のWebサービスを連携する | Coming soon... |
+| 超入門 | [プログラミング不要!知話輪と外部のWebサービスを連携する](./document/ConnectChiwawaWithWebServices.md) | ノンプログラミングで知話輪と外部の便利なWebサービス群と連携をする方法を紹介します。 |
 | 入門 | [APIを使うための基礎知識](./document/APIcomponent.md) | 知話輪API・BOTアプリケーションに関する基礎知識を紹介します。 |
 | 入門 | [知話輪ボット入門　Javascript＋Azure Functions編](./document/CreateBotWithJavascriptOnAzureFunctions.md) | Azure Functionsを使って、インフラや開発環境の構築なしに、簡単に知話輪ボットを作る方法を紹介します。 |
 | 入門 | [知話輪ボット入門　Javascript＋Heroku編　開発環境構築手順（Mac）](./document/build_environment.md) | Heroku上で本格的なボットを開発するために、開発環境を構築する手順を紹介します。 |
