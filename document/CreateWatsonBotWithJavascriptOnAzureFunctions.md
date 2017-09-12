@@ -73,12 +73,14 @@ IBM Watson Conversationを使って、知話輪ボットを作成する方法を
 | WATSON_WORKSPACE_ID | WatsonのWorkspace ID |
 
 ## 【Azure】WatsonのSDKをインストール
-- 下記のサイトからコマンドラインツールを立ち上げる。
+- 下記のURLにてコマンドラインツール（Kudu）を立ち上げる。
 ```
-https://Your_APP_NAME.scm.azurewebsites.net/DebugConsole
+https://YOUR_APP_NAME.scm.azurewebsites.net/DebugConsole
 ```
+- YOUR_APP_NAMEは設定画面のOverviewに表示されるURLから取得できる。例えば、下記の場合のYOUR_APP_NAMEは「chiwawaqasample」となる。<br />
+<img src="../img/qamaker_function_app_settings_overview.png" width="500px" /><br />
+- 正しいURLを打つと下記のようなコマンドラインツールの画面に遷移する。<br />
 <img src="../img/azure_kudu_install_javascript.png" width="500px" /><br />
-
 - ライブラリをインストールするため、npm initでpackage.jsonを作成する。（直接JSONを書いてもよい）
 - 知話輪のSDKとwatsonのSDKをインストールする。（watsonのSDKのインストールにはかなりの時間がかかる）
 ```

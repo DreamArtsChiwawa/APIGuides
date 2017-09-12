@@ -52,12 +52,13 @@ Azure FunctionsのPythonを用いて、知話輪ボットを作成する手順�
 | CHIWAWA_VALIDATION_TOKEN | 知話輪のWebhook検証用トークン |
 
 ## 【Azure】サードパーティーのライブラリをインストール
-- 下記のサイトからコマンドラインツールを立ち上げる。
+- 下記のURLにてコマンドラインツール（Kudu）を立ち上げる。
 ```
-https://Your_APP_NAME.scm.azurewebsites.net/DebugConsole
+https://YOUR_APP_NAME.scm.azurewebsites.net/DebugConsole
 ```
-<img src="../img/azure_kudu_install_python.png" width="500px" /><br />
-
+- YOUR_APP_NAMEは設定画面のOverviewに表示されるURLから取得できる。例えば、下記の画面の場合のYOUR_APP_NAMEは「chiwawaqasample」となる。<br />
+<img src="../img/qamaker_function_app_settings_overview.png" width="500px" /><br />
+- 正しいURLを打つと下記のようなコマンドラインツールの画面に遷移する。<br />
 - サードパーティのライブラリをインストールするため、カスタムのpythonをインストールする。
 ```
 nuget.exe install -Source https://www.siteextensions.net/api/v2/ -OutputDirectory D:\home\site\tools python2713x64

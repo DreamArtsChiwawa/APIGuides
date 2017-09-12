@@ -161,13 +161,16 @@ const ChiwawaService = {
 ここまでは、理解を促進するためにSDKを使わずに直接知話輪のREST APIを呼び出す例を紹介しました。ここからは、chiwawa_node_sdkを使って、より簡易に実装する方法を紹介します。
 
 ## 【Azure】SDKをインストール
-- 下記のサイトからコマンドラインツールを立ち上げる。
+- 下記のURLにてコマンドラインツール（Kudu）を立ち上げる。
 ```
-https://Your_APP_NAME.scm.azurewebsites.net/DebugConsole
+https://YOUR_APP_NAME.scm.azurewebsites.net/DebugConsole
 ```
+- YOUR_APP_NAMEは設定画面のOverviewに表示されるURLから取得できる。例えば、下記の場合のYOUR_APP_NAMEは「chiwawaqasample」となる。<br />
+<img src="../img/qamaker_function_app_settings_overview.png" width="500px" /><br />
+- 正しいURLを打つと下記のようなコマンドラインツールの画面に遷移する。<br />
 <img src="../img/azure_kudu_install_javascript.png" width="500px" /><br />
-
-- ライブラリをインストールするため、npm initでpackage.jsonを作成する。（New Fileから作成して直接JSONを書いてもよい。）
+- ライブラリをインストールするため、npm initでpackage.jsonを作成する。（直接JSONを書いてもよい）
+- 知話輪のSDKをインストールする。
 ```
 cd D:\home\site\wwwroot\YourFunctionName
 npm init
