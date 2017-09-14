@@ -12,5 +12,5 @@
 | 入門 | [知話輪ボット入門　Python＋Azure Functions編](./document/CreateBotWithPythonOnAzureFunctions.md) | 機械学習等で需要の高いPythonでの開発手順を紹介します。Azure Functionsを使うため、インフラ・開発環境構築は不要です。 |
 | 応用 | [Microsoft QnAMakerを使って、コピペだけでAIチャットボットを作る](./document/CreateQABotWithAzureAndQAMaker.md) | プログラミングなしで簡単に使えるAIサービスのMicrosoft QnAMakerを使って、コピペだけでAIチャットボットを作る方法を紹介します。 |
 | 応用 | [IBM Watson Conversationを使って、コピペだけでAIチャットボットを作る](./document/CreateWatsonBotWithJavascriptOnAzureFunctions.md) | プログラミングなしで使えるAIサービスのWatson Conversationを使って、簡単にAIチャットボットを作る方法を紹介します。 |
-| 応用 | 知話輪とTensorFlowをつなげて、本格AIチャットボット開発ができるようにする | Coming soon... |
+| 応用 | [知話輪とTensorFlowをつなげて、本格AIチャットボット開発ができるようにする](CreateAIChatbotWithTensorFlow.md) | TensorFlowを用いて、自分のデータとモデルを使ったAIチャットボットを作る方法を紹介します。少し難易度が上がります。 |
 | SDK | [知話輪SDK for Node.js](https://github.com/DreamArtsChiwawa/chiwawa_node_sdk) | 知話輪のAPI呼び出しを簡単にするためのSDKです。もちろんこれを使わなくてもAPIの利用は可能です。 |

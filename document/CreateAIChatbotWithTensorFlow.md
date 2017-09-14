@@ -1,5 +1,5 @@
 # TensorFlowを用いたAIチャットボット入門（Mac編）
-これまでのチュートリアルでは、IBMのWatsonやMicrosoftのQnAMakerなどを用いて、ほとんどプログラミングをせずにAIチャットボットを作成してきました。<br />
+これまでのチュートリアルでは、IBMのWatsonやMicrosoftのQnAMakerなどを用いて、ほとんどプログラミングをせずにAIチャットボットを作成してきました。
 しかし、それらはQAなどの限定された用途で使えるだけで、自分でモデルを定義して独自の学習をさせることはできませんでした。<br />
 そこで、今回は人気のDeepLearningのフレームワークであるTensorFlowを用いて、知話輪のAIチャットボットを作る方法を紹介します。<br />
 
@@ -99,7 +99,7 @@ export GROUP_ID='グループIDをセットしてください。'
 動きを確認したら、ソースコードを見ながら要点を確認していきましょう。
 
 ### 学習データのダウンロード（train.py）
-行列計算にするとコードがシンプルになるため、Neural Networkを使う場合は、データを(多次元)配列に整形して放り込みます。今回は簡単にするため、インターネットに公開されているデータ（mnist）をつかって学習を行います。
+行列計算にするとコードがシンプルになるため、Neural Networkを使う場合は、データを(多次元)配列に整形して放り込みます。今回は簡単にするため、インターネットに公開されているデータ（mnist）をつかって学習を行います。<br />
 このmnistのデータの中には、28×28ピクセルの手書き文字の画像データ（実際は0と1の2次元配列）と、それが何の数字かという正解データが入っています。正解データには正解の数字が入っている訳ではなく、要素数10の配列が入っています。配列の要素のうち正解のところだけに1が入っており、それ以外は0が入った形になっています。（これをone-hotベクトルと呼びます。）
 ```
 from tensorflow.examples.tutorials.mnist import input_data
@@ -190,5 +190,5 @@ result = recognize.predict(image)
 - [TensorFlow（英語）](https://www.tensorflow.org/)
 - [MNIST For ML Beginners（英語）](https://www.tensorflow.org/get_started/mnist/beginners)
     - train.pyのコードはこのチュートリアルを元に、シンプルにして保存できるように変更を加えています。train.pyの部分をより詳しく知りたい場合は、このチュートリアルを参考にしてください。
-- [TensorFlowで学ぶディープラーニング入門 ~畳み込みニューラルネットワーク徹底解説~](https://www.amazon.co.jp/TensorFlow%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-~%E7%95%B3%E3%81%BF%E8%BE%BC%E3%81%BF%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%A9%E3%83%AB%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%BE%B9%E5%BA%95%E8%A7%A3%E8%AA%AC~-%E4%B8%AD%E4%BA%95-%E6%82%A6%E5%8F%B8/dp/4839960887/ref=sr_1_sc_3?ie=UTF8&qid=1505364366&sr=8-3-spell&keywords=Tensoflow)
+- [TensorFlowで学ぶディープラーニング入門 畳み込みニューラルネットワーク徹底解説](https://www.amazon.co.jp/TensorFlow%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-~%E7%95%B3%E3%81%BF%E8%BE%BC%E3%81%BF%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%A9%E3%83%AB%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%BE%B9%E5%BA%95%E8%A7%A3%E8%AA%AC~-%E4%B8%AD%E4%BA%95-%E6%82%A6%E5%8F%B8/dp/4839960887/ref=sr_1_sc_3?ie=UTF8&qid=1505364366&sr=8-3-spell&keywords=Tensoflow)
     - templates/index.htmlの手描きメモを28×28の0と1の二次元配列にしてサーバーに送りつける部分のコードは、この本を参考にしています。この本を読み進めれば、さらに認識精度を高めながら畳み込みニューラルネットワークが理解できます。
