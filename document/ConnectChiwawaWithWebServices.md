@@ -55,7 +55,7 @@
 <img src="../img/zapier_connect_an_account_input.png" width="350px" /><br />
 1. 知話輪の企業IDを入力する。<br />
 <img src="../img/zapier_enter_company_id.png" width="500px" /><br />
-1. 下記画面にて発行されたURLをコピーする。
+1. 下記画面にて発行されたURLをコピーする。<br />
 <img src="../img/zapier_copy_webhook_url.png" width="500px" /><br />
 1. 知話輪のBOT管理画面のWebhook URLの欄に貼り付ける。
 <img src="../img/zapier_chiwawa_webhook.png" width="500px" /><br />
@@ -129,7 +129,7 @@
 | 定時イベント | Zapier Sceduler | 毎日、毎週など定期的に処理を実行。毎朝メールの検索結果を知話輪に通知するなど。 |
 | カスタマイズ | Zapier Code | JavascriptやPythonのコードを実行してカスタムの処理を記載。上記で不足している点を補う際に用いることができる。（※1） |
 
-（※1　JavascriptやPythonを用いる場合は、zapierではなく、別の手順で紹介しているAzureを用いる方が安く、拡張性も高く、簡単に実現できます。）
+（※1　JavascriptやPythonを用いる場合は、zapierではなく、別の手順で紹介しているAzureを用いる方が安く、拡張性も高く、しかも簡単に実現できます。具体的なやり方は次のステップを参照してください。）
 
 ## 次のステップ
 - [知話輪ボット入門　Javascript＋Azure Functions編](./CreateBotWithJavascriptOnAzureFunctions.md)
