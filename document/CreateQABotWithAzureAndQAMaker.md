@@ -3,7 +3,10 @@ Microsoft QnAMakerを使って、知話輪のAIチャットボットを作成す
 今回もボットサーバーは構築せず、Azure Functionsを使って、<B>ブラウザ上でコピペだけで開発</B>をします。<br />
 
 ## 準備するもの
-1. 知話輪のアプリ、ユーザアカウント、Bot管理権限
+1. 知話輪のアプリ、ユーザアカウント、Bot管理権限<BR>
+<B>知話輪は下記サイトからお試しいただけます</B>。自社環境で本格的にセットアップして使い始める前に手軽に試したい場合などは、下記をご利用ください。<BR>
+[プロダクト無料トライアル](https://www.dreamarts.co.jp/product/trial/?ml)（[https://www.dreamarts.co.jp/product/trial/?ml](https://www.dreamarts.co.jp/product/trial/?ml)）<BR>
+なお、お申込みの際は<B>「トライアルに関するご希望」欄に「API利用希望」</B>とご記入ください。
 1. Microsoft Azureのアカウント
 1. Chromeブラウザ
 
