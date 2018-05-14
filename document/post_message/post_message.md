@@ -14,14 +14,14 @@
     - [実装手順](#実装手順)
       > [知話輪APIドキュメント](https://developers.chiwawa.one/api/document.html)に書かれている内容から、Botを作製する手順を示しています。
 
-      - HTTP Responce
+      - HTTP Response
       - JSON解析・生成
       - HTTP Request
     - [Node.jsでの手順](#Node.jsでの手順)
       > 具体的にプログラムを実装しています。
 
       - 全体プログラム
-      - HTTP Responce
+      - HTTP Response
       - JSON解析・生成
       - HTTP Request
 
@@ -61,11 +61,11 @@
 
 ## 実装手順
 
-### HTTP Responce
+### HTTP Response
 
-1. 知話輪サーバからメッセージを受け取るには、HTTP Responceが必要です
+1. 知話輪サーバからメッセージを受け取るには、HTTP Responseが必要です
 
-1. HTTP Responceは、情報を受け取ります
+1. HTTP Responseは、情報を受け取ります
 
 1. 知話輪APIでは、情報はJSON形式の文字列でやり取りすることになっています (文字列からJSONへの変換が必要)
 
@@ -73,7 +73,7 @@
 
 #### 概要
 
-##### HTTP Responceで知話輪サーバからメッセージを受け取る
+##### HTTP Responseで知話輪サーバからメッセージを受け取る
 
 1. BOTサーバは、知話輪サーバからPOSTリクエストを受け付けている (②を受け取る準備)
 
@@ -425,11 +425,11 @@ APIトークンは、プログラムの中の直接書くべきではありま�
 <br><br>
 
 
-### HTTP Responce
+### HTTP Response
 
 #### プログラム
 
-##### HTTP Responceで知話輪サーバからメッセージを受け取る
+##### HTTP Responseで知話輪サーバからメッセージを受け取る
 
 1. Botサーバは、知話輪サーバから、POSTリクエストを受け付ける。(②を受け取る準備)
 
@@ -609,7 +609,7 @@ APIトークンは、プログラムの中の直接書くべきではありま�
 
     ```JavaScript
     request.post(options, function(err, httpResponse, body){
-        console.log({"responce": "can't send responce"});
+        console.log({"response": "can't send response"});
     });
     ```
 
@@ -619,7 +619,7 @@ APIトークンは、プログラムの中の直接書くべきではありま�
 
     ```JavaScript
     request.post(options, function(err, httpResponse, body){
-        console.log({"responce": "can't send responce"});
+        console.log({"response": "can't send response"});
     });
     ```
 
