@@ -327,7 +327,7 @@
 
     const server = express();
 
-    server.use(bodyParser.urlencoded( {
+    server.use(bodyParser.urlencoded({
         extended: true
     }));
     server.use(bodyParser.json());
@@ -343,14 +343,14 @@
 
         const textData = req.body.message.text;
         const groupId = req.body.message.groupId;
-        const submittionUrl = baseUrl + `/groups/${groupId}/messages`;
+        const submittionUrl = `$(baseUrl)/groups/${groupId}/messages`;
 
         const content = {
-            'text' : textData,
+            'text': textData,
         };
         const headers = {
             'Content-Type': 'application/json',
-            'X-Chiwawa-API-Token':apiToken,
+            'X-Chiwawa-API-Token': apiToken,
         };
         const options = {
             url: submittionUrl,
