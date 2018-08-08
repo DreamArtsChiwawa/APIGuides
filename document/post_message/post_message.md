@@ -313,8 +313,8 @@
 1. echo Botでのindex.jsプログラムを以下に示す。
 
     ```JavaScript
-    const express = require("express");
-    const bodyParser = require("body-parser");
+    const express = require('express');
+    const bodyParser = require('body-parser');
     const request = require('request');
 
     const companyId = process.env.NODE_COMPANY_ID;
@@ -327,42 +327,42 @@
 
     const server = express();
 
-    server.use(bodyParser.urlencoded({
+    server.use(bodyParser.urlencoded( {
         extended: true
     }));
     server.use(bodyParser.json());
 
-    server.post("/", function(req, res) {
+    server.post('/', (req, res) => {
         console.log(req.body);
-        res.json({ "result": "OK" });
+        res.json({'result': 'OK'});
 
-        var reqWebhookToken = req.headers['x-chiwawa-webhook-token'];
+        const reqWebhookToken = req.headers['x-chiwawa-webhook-token'];
         if (reqWebhookToken === verifyToken) {
 
-            var text_data = req.body.message.text;
-            var groupId = req.body.message.groupId;
-            var submittionUrl = baseUrl + `/groups/${groupId}/messages`;
+            const textData = req.body.message.text;
+            const groupId = req.body.message.groupId;
+            const submittionUrl = baseUrl + `/groups/${groupId}/messages`;
 
-            var content = {
-                'text' : text_data
+            const content = {
+                'text' : textData,
             };
-            var headers = {
+            const headers = {
                 'Content-Type': 'application/json',
-                'X-Chiwawa-API-Token':apiToken
+                'X-Chiwawa-API-Token':apiToken,
             };
-            var options = {
+            const options = {
                 url: submittionUrl,
                 headers: headers,
-                json: content
-            }
+                json: content,
+            };
 
-            request.post(options, function(err,httpResponse,body){
+            request.post(options, (err, httpResponse, body) => {
             });
         }
 
     });
 
-    server.listen( process.env["PORT"] || "3000");
+    server.listen(process.env['PORT'] || '3000');
     ```
 
 1. package.json
