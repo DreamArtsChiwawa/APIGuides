@@ -337,28 +337,29 @@
         res.json({'result': 'OK'});
 
         const reqWebhookToken = req.headers['x-chiwawa-webhook-token'];
-        if (reqWebhookToken === verifyToken) {
-
-            const textData = req.body.message.text;
-            const groupId = req.body.message.groupId;
-            const submittionUrl = baseUrl + `/groups/${groupId}/messages`;
-
-            const content = {
-                'text' : textData,
-            };
-            const headers = {
-                'Content-Type': 'application/json',
-                'X-Chiwawa-API-Token':apiToken,
-            };
-            const options = {
-                url: submittionUrl,
-                headers: headers,
-                json: content,
-            };
-
-            request.post(options, (err, httpResponse, body) => {
-            });
+        if (reqWebhookToken !== verifyToken) {
+            return;
         }
+
+        const textData = req.body.message.text;
+        const groupId = req.body.message.groupId;
+        const submittionUrl = baseUrl + `/groups/${groupId}/messages`;
+
+        const content = {
+            'text' : textData,
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+            'X-Chiwawa-API-Token':apiToken,
+        };
+        const options = {
+            url: submittionUrl,
+            headers: headers,
+            json: content,
+        };
+
+        request.post(options, (err, httpResponse, body) => {
+        });
 
     });
 
