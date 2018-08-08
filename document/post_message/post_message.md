@@ -313,8 +313,8 @@
 1. echo Botでのindex.jsプログラムを以下に示す。
 
     ```JavaScript
-    const express = require("express");
-    const bodyParser = require("body-parser");
+    const express = require('express');
+    const bodyParser = require('body-parser');
     const request = require('request');
 
     const companyId = process.env.NODE_COMPANY_ID;
@@ -332,37 +332,38 @@
     }));
     server.use(bodyParser.json());
 
-    server.post("/", function(req, res) {
+    server.post('/', (req, res) => {
         console.log(req.body);
-        res.json({ "result": "OK" });
+        res.json({'result': 'OK'});
 
-        var reqWebhookToken = req.headers['x-chiwawa-webhook-token'];
-        if (reqWebhookToken === verifyToken) {
-
-            var text_data = req.body.message.text;
-            var groupId = req.body.message.groupId;
-            var submittionUrl = baseUrl + `/groups/${groupId}/messages`;
-
-            var content = {
-                'text' : text_data
-            };
-            var headers = {
-                'Content-Type': 'application/json',
-                'X-Chiwawa-API-Token':apiToken
-            };
-            var options = {
-                url: submittionUrl,
-                headers: headers,
-                json: content
-            }
-
-            request.post(options, function(err,httpResponse,body){
-            });
+        const reqWebhookToken = req.headers['x-chiwawa-webhook-token'];
+        if (reqWebhookToken !== verifyToken) {
+            return;
         }
+
+        const textData = req.body.message.text;
+        const groupId = req.body.message.groupId;
+        const submittionUrl = `$(baseUrl)/groups/${groupId}/messages`;
+
+        const content = {
+            'text': textData,
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+            'X-Chiwawa-API-Token': apiToken,
+        };
+        const options = {
+            url: submittionUrl,
+            headers: headers,
+            json: content,
+        };
+
+        request.post(options, (err, httpResponse, body) => {
+        });
 
     });
 
-    server.listen( process.env["PORT"] || "3000");
+    server.listen(process.env['PORT'] || '3000');
     ```
 
 1. package.json
